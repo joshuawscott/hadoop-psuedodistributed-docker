@@ -1,0 +1,14 @@
+version: "3.2"
+services:
+  hadoop:
+    build: .
+    volumes:
+      - ./etc/core-site.xml:/hadoop-3.0.3/etc/hadoop/core-site.xml
+      - ./etc/hdfs-site.xml:/hadoop-3.0.3/etc/hadoop/hdfs-site.xml
+      - ./etc/mapred-site.xml:/hadoop-3.0.3/etc/hadoop/mapred-site.xml
+      - ./etc/yarn-site.xml:/hadoop-3.0.3/etc/hadoop/yarn-site.xml
+      - ./etc/hadoop-env.sh:/hadoop-3.0.3/etc/hadoop/hadoop-env.sh
+      - ./start_hadoop.sh:/start_hadoop.sh
+      - ./data:/data
+    command: "/start_hadoop.sh"
+
